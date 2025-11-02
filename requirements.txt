@@ -1,0 +1,21 @@
+# Core agent & learning framework
+agentlightning==0.2.1
+langgraph
+langchain>=1.0.0
+
+# Groq integration (you used langchain-groq / groq)
+langchain-groq==1.0.0
+groq==0.33.0
+
+# LangChain core helpers (some libraries import langchain_core)
+langchain-core==1.0.2
+
+# Grok / HTTP + env
+requests
+python-dotenv
+
+# Optional / utilities your scripts used or may need
+rich
+tqdm
+uvicorn
+fastapi
