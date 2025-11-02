@@ -70,66 +70,6 @@ GROQ_API_KEY=your_groq_api_key_here
 
 ---
 
-## 🧠 3. Main Script — `agent_code.py`
-```python
-from langchain_groq import ChatGroq
-from langgraph.prebuilt import create_react_agent
-from langchain import hub
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-llm = ChatGroq(model="llama3-8b-8192", api_key=os.getenv("GROQ_API_KEY"))
-prompt = hub.pull("hwchase17/react")
-agent = create_react_agent(llm, tools=[], prompt=prompt)
-
-query = "List top 2 customers by sales amount"
-result = agent.invoke({"input": query})
-print(result["output"])
-```
-
----
-
-## 🔁 4. Self-Learning Trainer — `train_lightning.py`
-```python
-import json, os, time
-from rich import print
-from agent_code import agent
-
-memory_file = "learned_memory.json"
-if os.path.exists(memory_file):
-    with open(memory_file, "r") as f:
-        learned_memory = json.load(f)
-else:
-    learned_memory = {}
-
-training_data = [
-    {"question": "List top 2 customers by sales amount", "expected": "[('Carol', 800.0), ('Alice', 500.0)]"},
-    {"question": "Which customer has sales less than 400?", "expected": "[('Bob', 300.0)]"},
-]
-
-print("\n🧠 Auto-learning SQL Agent Trainer\n")
-
-for round_num in range(1, 4):
-    print(f"🚀 Starting training round {round_num}...")
-    correct = 0
-    for t in training_data:
-        predicted = agent.invoke({"input": t["question"]}).get("output", "error")
-        is_correct = str(predicted).strip() == t["expected"]
-        if is_correct:
-            correct += 1
-        learned_memory[t["question"].lower()] = predicted
-        print(f"Update rollout with {{'question': '{t['question']}', 'predicted': '{predicted}', 'expected': '{t['expected']}'}}")
-    accuracy = correct / len(training_data)
-    print(f"✅ Round {round_num} — Accuracy: {accuracy * 100:.1f}%\n")
-    time.sleep(1)
-
-with open(memory_file, "w") as f:
-    json.dump(learned_memory, f, indent=4)
-
-print("🧠 Final learned corrections saved.")
-```
-
 ---
 
 ## ⚙️ 5. Run and Train the Agent
@@ -145,29 +85,6 @@ Example output:
 ✅ Round 1 — Accuracy: 0.0%
 ✅ Round 2 — Accuracy: 100.0%
 ✅ Round 3 — Accuracy: 100.0%
-```
-
----
-
-## 🚀 6. Push to GitHub
-```bash
-git init
-git add .
-git commit -m "Initial Agent Lightning commit"
-git branch -M main
-git remote add origin https://github.com/<your-username>/agent_lightining.git
-git push -u origin main
-```
-
----
-
-## 📄 .gitignore Example
-```
-agentlightning-venv/
-venv/
-.env
-__pycache__/
-*.pyc
 ```
 
 ---
