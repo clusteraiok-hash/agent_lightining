@@ -1,0 +1,16 @@
+{
+  "agent": "SQLAgent",
+  "run_id": "20251102_103424",
+  "timestamp": "2025-11-02 10:34:24",
+  "accuracy": 0.5,
+  "results": [
+    {
+      "question": "List top 2 customers by sales amount",
+      "score": 1.0
+    },
+    {
+      "question": "Which customer has sales less than 400?",
+      "score": 0.0
+    }
+  ]
+}

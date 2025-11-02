@@ -1,0 +1,86 @@
+[
+  {
+    "run_id": "20251102_104853",
+    "agent": "SQLAgent",
+    "accuracy": 100.0,
+    "results": [
+      {
+        "question": "List top 2 customers by sales amount",
+        "score": 1.0
+      },
+      {
+        "question": "Which customer has sales less than 400?",
+        "score": 1.0
+      }
+    ]
+  },
+  {
+    "run_id": "20251102_105021",
+    "agent": "SQLAgent",
+    "accuracy": 100.0,
+    "results": [
+      {
+        "question": "List top 2 customers by sales amount",
+        "predicted": [
+          [
+            "Carol",
+            800.0
+          ],
+          [
+            "Alice",
+            500.0
+          ]
+        ],
+        "score": 1.0
+      },
+      {
+        "question": "Which customer has sales less than 400?",
+        "predicted": [
+          [
+            "Bob",
+            300.0
+          ]
+        ],
+        "score": 1.0
+      }
+    ]
+  },
+  {
+    "run_id": "20251102_105424",
+    "agent": "SQLAgent",
+    "accuracy": 0.0,
+    "results": [
+      {
+        "question": "List top 2 customers by sales amount",
+        "predicted": "The top 2 customers by sales amount are Carol and Alice, with total sales of 800.0 and 500.0 respectively.",
+        "expected": "[('Carol', 800.0), ('Alice', 500.0)]",
+        "score": 0.0
+      },
+      {
+        "question": "Which customer has sales less than 400?",
+        "predicted": "The customer with sales less than 400 is Alice.",
+        "expected": "[('Bob', 300.0)]",
+        "score": 0.0
+      }
+    ]
+  },
+  {
+    "run_id": "20251102_111303",
+    "agent": "SQLAgent",
+    "accuracy": 0.0,
+    "results": [
+      {
+        "question": "List top 2 customers by sales amount",
+        "predicted": "The top 2 customers by sales amount are Carol and Alice, with total sales of 800.0 and 500.0 respectively.",
+        "expected": "[('Carol', 800.0), ('Alice', 500.0)]",
+        "score": 0.0
+      },
+      {
+        "question": "Which customer has sales less than 400?",
+        "predicted": "The customer with sales less than 400 is Alice.",
+        "expected": "[('Bob', 300.0)]",
+        "score": 0.0
+      }
+    ]
+  }
+]

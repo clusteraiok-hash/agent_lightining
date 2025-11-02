@@ -1,0 +1,10 @@
+[
+  {
+    "question": "List top 2 customers by sales amount",
+    "expected": "[('Carol', 800.0), ('Alice', 500.0)]"
+  },
+  {
+    "question": "Which customer has sales less than 400?",
+    "expected": "[('Bob', 300.0)]"
+  }
+]

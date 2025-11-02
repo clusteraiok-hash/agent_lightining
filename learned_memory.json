@@ -1,0 +1,6 @@
+{
+  "List top 2 customers by sales amount": "[('Carol', 800.0), ('Alice', 500.0)]",
+  "Which customer has sales less than 400?": "[('Bob', 300.0)]",
+  "list top 2 customers by sales amount": "[('Carol', 800.0), ('Alice', 500.0)]",
+  "which customer has sales less than 400?": "[('Bob', 300.0)]"
+}
